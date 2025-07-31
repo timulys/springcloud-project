@@ -1,0 +1,10 @@
+rootProject.name = 'springcloud-project'
+
+include 'auth-service'
+include 'config-server'
+include 'discovery-server'
+include 'gateway-service'
+include 'post-service'
+include 'comment-service'
+include 'common-lib'
+
