@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service/springcloud-project.auth-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service/springcloud-project.auth-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common-lib/springcloud-project.common-lib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common-lib/springcloud-project.common-lib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/discovery-server/springcloud-project.discovery-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/discovery-server/springcloud-project.discovery-server.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway-service/springcloud-project.gateway-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway-service/springcloud-project.gateway-service.main.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,7 +1,11 @@
 package com.example.auth.controller;
 
-import com.example.auth.entity.dto.request.SignUpRequestDTO;
-import com.example.auth.entity.dto.response.SignUpResponseDTO;
+import com.example.auth.dto.request.LoginRequestDTO;
+import com.example.auth.dto.request.SignUpRequestDTO;
+import com.example.auth.dto.request.TokenRequestDTO;
+import com.example.auth.dto.response.LoginResponseDTO;
+import com.example.auth.dto.response.SignUpResponseDTO;
+import com.example.auth.dto.response.TokenResponseDTO;
 import com.example.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,5 +24,15 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<? super SignUpResponseDTO> signup(@RequestBody SignUpRequestDTO signUpRequestDTO) {
         return authService.signup(signUpRequestDTO);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<? super LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO) {
+        return authService.login(loginRequestDTO);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<? super TokenResponseDTO> refresh(@RequestBody TokenRequestDTO tokenRequestDTO) {
+        return authService.refresh(tokenRequestDTO);
     }
 }

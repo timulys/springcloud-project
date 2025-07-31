@@ -1,19 +1,10 @@
 plugins {
     id 'java'
-}
-
-group = 'com.example'
-version = '1.0.0'
-
-repositories {
-    mavenCentral()
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management'
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 }

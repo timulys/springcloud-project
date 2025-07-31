@@ -1,7 +1,7 @@
 package com.example.auth.controller.advice;
 
 import com.example.auth.exception.UserNotFoundException;
-import com.exmple.common.entity.dto.ResponseDTO;
+import com.example.common.entity.dto.ResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

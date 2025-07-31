@@ -1,4 +1,0 @@
-jwt:
-  secret: your-secret-key-your-secret-key-your-secret-key-your-secret-key-your-secret-key-your-secret-key
-  access-token-validity: 600   # 10분
-  refresh-token-validity: 86400
