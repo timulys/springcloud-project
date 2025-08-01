@@ -9,8 +9,8 @@ import org.springframework.http.ResponseEntity;
 @Getter
 @ToString
 public class TokenResponseDTO extends ResponseDTO {
-    private String accessToken;
-    private String refreshToken;
+    private final String accessToken;
+    private final String refreshToken;
 
     public TokenResponseDTO(String code, String message, String accessToken, String refreshToken) {
         super(code, message);

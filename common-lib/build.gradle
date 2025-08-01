@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     compileOnly 'org.projectlombok:lombok:1.18.30'

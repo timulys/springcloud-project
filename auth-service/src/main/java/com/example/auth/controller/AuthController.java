@@ -7,13 +7,13 @@ import com.example.auth.dto.response.LoginResponseDTO;
 import com.example.auth.dto.response.SignUpResponseDTO;
 import com.example.auth.dto.response.TokenResponseDTO;
 import com.example.auth.service.AuthService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@Log4j2
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/auth")
@@ -22,7 +22,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<? super SignUpResponseDTO> signup(@RequestBody SignUpRequestDTO signUpRequestDTO) {
+    public ResponseEntity<? super SignUpResponseDTO> signup(@Valid @RequestBody SignUpRequestDTO signUpRequestDTO) {
         return authService.signup(signUpRequestDTO);
     }
 
@@ -32,7 +32,11 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<? super TokenResponseDTO> refresh(@RequestBody TokenRequestDTO tokenRequestDTO) {
+    public ResponseEntity<? super TokenResponseDTO> refresh(
+            @RequestHeader("X-User-Email") String email,
+            @RequestHeader("X-User-Role")  String role,
+            @RequestHeader("X-User-Name") String Name,
+            @RequestBody TokenRequestDTO tokenRequestDTO) {
         return authService.refresh(tokenRequestDTO);
     }
 }

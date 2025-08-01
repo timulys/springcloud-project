@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS post_db
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+CREATE USER IF NOT EXISTS 'post_user'@'%' IDENTIFIED BY 'post_pass';
+
+GRANT ALL PRIVILEGES ON post_db.* TO 'post_user'@'%';
+
+FLUSH PRIVILEGES;

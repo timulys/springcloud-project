@@ -1,7 +1,6 @@
 package com.example.auth.security;
 
 import com.example.auth.dto.UserDTO;
-import com.example.auth.entity.User;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

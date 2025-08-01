@@ -10,9 +10,9 @@ import org.springframework.http.ResponseEntity;
 @Getter
 @ToString
 public class LoginResponseDTO extends ResponseDTO {
-    private UserDTO user;
-    private String accessToken;
-    private String refreshToken;
+    private final UserDTO user;
+    private final String accessToken;
+    private final String refreshToken;
 
     public LoginResponseDTO(String code, String message, UserDTO user, String accessToken, String refreshToken) {
         super(code, message);

@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common-lib/springcloud-project.common-lib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common-lib/springcloud-project.common-lib.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/discovery-server/springcloud-project.discovery-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/discovery-server/springcloud-project.discovery-server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gateway-service/springcloud-project.gateway-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gateway-service/springcloud-project.gateway-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/post-service/springcloud-project.post-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/post-service/springcloud-project.post-service.main.iml" />
     </modules>
   </component>
 </project>
