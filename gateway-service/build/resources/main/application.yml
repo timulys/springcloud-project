@@ -5,6 +5,9 @@ spring:
   application:
     name: gateway-service
 
+  codec:
+    max-in-memory-size: 10MB  # <-- 여기가 중요. 기본은 256KB로, JSON이 클 경우 문제됨
+
   cloud:
     gateway:
       discovery:
@@ -29,3 +32,7 @@ eureka:
 
 jwt:
   secret: eW91cnNlY3JldGtleXlvdXJzZWNyZXRrZXl5b3Vyc2VjcmV0a2V5eW91cnNlY3JldA==  # base64 인코딩된 key
+
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: DEBUG

@@ -21,7 +21,7 @@ public class LoginResponseDTO extends ResponseDTO {
         this.refreshToken = refreshToken;
     }
 
-    public static ResponseEntity<? super LoginResponseDTO> success(String message, UserDTO user, String accessToken, String refreshToken) {
+    public static ResponseEntity<LoginResponseDTO> success(String message, UserDTO user, String accessToken, String refreshToken) {
         LoginResponseDTO result = new LoginResponseDTO("success", message, user, accessToken, refreshToken);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }

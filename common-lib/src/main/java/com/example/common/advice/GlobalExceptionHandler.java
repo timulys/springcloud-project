@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
         List<String> errors = e.getBindingResult().getFieldErrors().stream()
                 .map(fe -> fe.getField() + ": " + fe.getDefaultMessage())
                 .toList();
-        return  ResponseEntity.status(HttpStatus.OK)
+        return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseDTO("not_valid_request", errors.getFirst()));
     }
 }

@@ -13,7 +13,7 @@ public class SignUpResponseDTO extends ResponseDTO {
         super(code, message);
     }
 
-    public static ResponseEntity<? super SignUpResponseDTO> success(String message) {
+    public static ResponseEntity<SignUpResponseDTO> success(String message) {
         SignUpResponseDTO result = new SignUpResponseDTO("success", message);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }

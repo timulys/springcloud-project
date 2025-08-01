@@ -18,12 +18,12 @@ public class TokenResponseDTO extends ResponseDTO {
         this.refreshToken = refreshToken;
     }
 
-    public static ResponseEntity<? super TokenResponseDTO> success(String message, String accessToken, String refreshToken) {
+    public static ResponseEntity<TokenResponseDTO> success(String message, String accessToken, String refreshToken) {
         TokenResponseDTO result = new TokenResponseDTO("success", message, accessToken, refreshToken);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    public static ResponseEntity<? super TokenResponseDTO> fail(String message) {
+    public static ResponseEntity<TokenResponseDTO> fail(String message) {
         TokenResponseDTO result = new TokenResponseDTO("fail", message, null, null);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }

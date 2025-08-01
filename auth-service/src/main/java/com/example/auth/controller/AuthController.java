@@ -32,11 +32,7 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<? super TokenResponseDTO> refresh(
-            @RequestHeader("X-User-Email") String email,
-            @RequestHeader("X-User-Role")  String role,
-            @RequestHeader("X-User-Name") String Name,
-            @RequestBody TokenRequestDTO tokenRequestDTO) {
+    public ResponseEntity<? super TokenResponseDTO> refresh(@RequestBody TokenRequestDTO tokenRequestDTO) {
         return authService.refresh(tokenRequestDTO);
     }
 }

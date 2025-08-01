@@ -15,9 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostRegisterRequestDTO {
-    @NotBlank
+    @NotBlank(message = "제목은 공백일 수 없습니다.")
     private String title;
-    @NotBlank
     private String content;
 
     @Builder.Default

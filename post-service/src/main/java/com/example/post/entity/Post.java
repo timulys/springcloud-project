@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -40,10 +41,11 @@ public class Post {
 
     private String authorRole;  // 작성자 권한
 
+    @Builder.Default
     @ElementCollection
-    @CollectionTable(name = "post_files", joinColumns = @JoinColumn(name = "post_id"))
     @Column(name = "file_name")
-    private List<PostFile> fileNames;
+    @CollectionTable(name = "post_files", joinColumns = @JoinColumn(name = "post_id"))
+    private List<PostFile> fileNames = new ArrayList<>();
 
     @CreationTimestamp
     private LocalDateTime createdAt;

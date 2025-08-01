@@ -7,10 +7,17 @@ import com.example.post.service.PostService;
 import com.example.post.util.CustomFileUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+@Log4j2
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/posts")
@@ -18,7 +25,7 @@ public class PostController {
     private final PostService postService;
     private final CustomFileUtil fileUtil;
 
-    @PostMapping(value = "/register", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/register")
     public ResponseEntity<? super PostRegisterResponseDTO> register(
             @RequestHeader("X-User-Email") String email,
             @RequestHeader("X-User-Name") String name,
