@@ -1,6 +1,7 @@
 package com.example.common.advice;
 
 import com.example.common.entity.dto.ResponseDTO;
+import com.example.common.exception.PostNotFoundException;
 import com.example.common.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<? super ResponseDTO> handleUserNotFoundException(UserNotFoundException e) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(new ResponseDTO("user_not_found", e.getMessage()));
+    }
+
+    @ExceptionHandler(PostNotFoundException.class)
+    public ResponseEntity<? super ResponseDTO> handlePostNotFoundException(PostNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseDTO("post_not_found", e.getMessage()));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

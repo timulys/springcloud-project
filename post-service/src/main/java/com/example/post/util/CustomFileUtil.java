@@ -61,12 +61,12 @@ public class CustomFileUtil {
             try {
                 Files.copy(file.getInputStream(), savePath, StandardCopyOption.REPLACE_EXISTING); // 원본 파일 업로드
 
-                // 이미지인 경우에만 확인해서 썸네일로 만들어준다.
+                /*// 이미지인 경우에만 확인해서 썸네일로 만들어준다.
                 String contentType = file.getContentType(); // MIME Type
                 if (contentType != null && contentType.startsWith("image")) {
                     Path thumbnailPath = Paths.get(uploadPath, "s_" + savedName);
                     Thumbnails.of(savePath.toFile()).size(thumbnailWidth, thumbnailHeight).toFile(thumbnailPath.toFile());
-                }
+                }*/
 
                 uploadNames.add(savedName);
             } catch (IOException e) {
