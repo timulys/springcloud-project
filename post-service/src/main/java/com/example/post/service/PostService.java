@@ -17,6 +17,7 @@ public interface PostService {
 
     ResponseEntity<? super GetPostResponseDTO> retrieve(Long id);
     PageResponseDTO<PostDTO> searchList(PageRequestDTO requestDTO);
+    PageResponseDTO<PostDTO> searchMyPostList(UserDTO userDTO, PageRequestDTO requestDTO);
 
     ResponseEntity<? super UpdatePostResponseDTO> update(UserDTO userDTO, UpdatePostRequestDTO requestDTO);
 

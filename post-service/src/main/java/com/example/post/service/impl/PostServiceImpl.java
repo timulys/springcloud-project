@@ -72,9 +72,35 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public PageResponseDTO<PostDTO> searchMyPostList(UserDTO userDTO, PageRequestDTO requestDTO) {
+        requestDTO.setKeywordType("authorName");
+        requestDTO.setKeyword(userDTO.getName());
+        return postRepository.searchList(requestDTO);
+    }
+
+    @Override
     public ResponseEntity<? super UpdatePostResponseDTO> update(UserDTO userDTO, UpdatePostRequestDTO requestDTO) {
-        // TODO
-        return null;
+        long id = Long.parseLong(requestDTO.getId());
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new PostNotFoundException(id));
+        post.update(requestDTO.getTitle(), requestDTO.getContent());
+
+        // 이미지 처리
+        if (requestDTO.getFiles() != null && !requestDTO.getFiles().isEmpty()) {
+            List<MultipartFile> files = requestDTO.getFiles();
+            List<String> updateUploadFileNames = customFileUtil.saveFiles(files);
+
+            // 중복 파일 삭제
+            List<String> removeFileNames = post.getFileNames().stream()
+                    .map(PostFile::getFileName)
+                    .toList();
+            customFileUtil.deleteFiles(removeFileNames);
+            post.clearList();
+
+            updateUploadFileNames.forEach(post::addImageString);
+        }
+
+        return UpdatePostResponseDTO.success("게시글 수정이 완료되었습니다.");
     }
 
     @Override

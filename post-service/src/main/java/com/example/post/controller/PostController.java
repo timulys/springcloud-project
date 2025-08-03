@@ -8,7 +8,6 @@ import com.example.post.dto.request.UpdatePostRequestDTO;
 import com.example.post.dto.response.*;
 import com.example.post.service.PostService;
 import jakarta.validation.Valid;
-import jakarta.ws.rs.DELETE;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +38,16 @@ public class PostController {
     @GetMapping("/list")
     public PageResponseDTO<PostDTO> list(PageRequestDTO requestDTO) {
         return postService.searchList(requestDTO);
+    }
+
+    @GetMapping("/list/my")
+    public PageResponseDTO<PostDTO> listMyPosts(
+            @RequestHeader("X-User-Email") String email,
+            @RequestHeader("X-User-Name") String name,
+            @RequestHeader("X-User-Role") String role,
+            PageRequestDTO requestDTO) {
+        UserDTO userDTO = new UserDTO(email, name, role);
+        return postService.searchMyPostList(userDTO, requestDTO);
     }
 
     @PutMapping("/update")

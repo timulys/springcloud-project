@@ -41,8 +41,11 @@ public class PostSearchImpl extends QuerydslRepositorySupport implements PostSea
 
         // 검색 조건 (제목 or 작성자 이름)
         if (pageRequestDTO.getKeyword() != null && !pageRequestDTO.getKeyword().isEmpty()) {
-            query.where(post.title.containsIgnoreCase(pageRequestDTO.getKeyword())
-                    .or(post.authorName.containsIgnoreCase(pageRequestDTO.getKeyword())));
+            if (pageRequestDTO.getKeywordType().equals("title")) {
+                query.where(post.title.containsIgnoreCase(pageRequestDTO.getKeyword()));
+            } else if (pageRequestDTO.getKeywordType().equals("name")) {
+                query.where(post.authorName.containsIgnoreCase(pageRequestDTO.getKeyword()));
+            }
         }
         // 페이징 실제 처리
         Objects.requireNonNull(getQuerydsl()).applyPagination(pageable,query);

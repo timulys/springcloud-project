@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UpdatePostRequestDTO {
     @NotBlank
-    private Long id;
+    private String id;
     @NotBlank(message = "제목은 공백일 수 없습니다.")
     private String title;
     private String content;
