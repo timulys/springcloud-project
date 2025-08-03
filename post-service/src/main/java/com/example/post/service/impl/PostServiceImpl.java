@@ -3,6 +3,7 @@ package com.example.post.service.impl;
 import com.example.common.exception.PostNotFoundException;
 import com.example.post.dto.PostDTO;
 import com.example.post.dto.UserDTO;
+import com.example.post.dto.enums.KeywordType;
 import com.example.post.dto.request.PageRequestDTO;
 import com.example.post.dto.request.PostRegisterRequestDTO;
 import com.example.post.dto.request.UpdatePostRequestDTO;
@@ -73,7 +74,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PageResponseDTO<PostDTO> searchMyPostList(UserDTO userDTO, PageRequestDTO requestDTO) {
-        requestDTO.setKeywordType("authorName");
+        requestDTO.setKeywordType(KeywordType.NAME);
         requestDTO.setKeyword(userDTO.getName());
         return postRepository.searchList(requestDTO);
     }

@@ -1,5 +1,6 @@
 package com.example.post.dto.request;
 
+import com.example.post.dto.enums.KeywordType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +20,5 @@ public class PageRequestDTO {
     @Builder.Default
     private String keyword = ""; // 검색용
     @Builder.Default
-    private String keywordType = "";
+    private KeywordType keywordType = KeywordType.TITLE;
 }

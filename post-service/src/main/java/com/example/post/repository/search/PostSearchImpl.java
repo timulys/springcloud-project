@@ -1,6 +1,7 @@
 package com.example.post.repository.search;
 
 import com.example.post.dto.PostDTO;
+import com.example.post.dto.enums.KeywordType;
 import com.example.post.dto.request.PageRequestDTO;
 import com.example.post.dto.response.PageResponseDTO;
 import com.example.post.entity.Post;
@@ -41,9 +42,9 @@ public class PostSearchImpl extends QuerydslRepositorySupport implements PostSea
 
         // 검색 조건 (제목 or 작성자 이름)
         if (pageRequestDTO.getKeyword() != null && !pageRequestDTO.getKeyword().isEmpty()) {
-            if (pageRequestDTO.getKeywordType().equals("title")) {
+            if (pageRequestDTO.getKeywordType().equals(KeywordType.TITLE)) {
                 query.where(post.title.containsIgnoreCase(pageRequestDTO.getKeyword()));
-            } else if (pageRequestDTO.getKeywordType().equals("name")) {
+            } else if (pageRequestDTO.getKeywordType().equals(KeywordType.NAME)) {
                 query.where(post.authorName.containsIgnoreCase(pageRequestDTO.getKeyword()));
             }
         }
